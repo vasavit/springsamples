@@ -6,5 +6,9 @@
 	<bean id="helloBean" class="com.saisvss.springsample1.HelloWorld">
 		<property name="name" value="Vasavi" />
 	</bean>
+	<bean id="helloBean1" class="com.saisvss.springsample1.HelloWorld">
+	<constructor-arg value="Hi Sateesh." />
+	
+	</bean>
  
 </beans>

@@ -15,6 +15,9 @@ public class App
 				"applicationContext.xml");
  
 		HelloWorld obj = (HelloWorld) context.getBean("helloBean");
+		HelloWorld obj1 = (HelloWorld) context.getBean("helloBean1");
+		
 		obj.printHello();
+		obj1.printHello();
 	}
 }
