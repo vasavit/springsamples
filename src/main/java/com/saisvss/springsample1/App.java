@@ -13,11 +13,17 @@ public class App
     {
     	ApplicationContext context = new ClassPathXmlApplicationContext(
 				"applicationContext.xml");
- 
-		HelloWorld obj = (HelloWorld) context.getBean("helloBean");
+    	
+    	HelloWorld hw = (HelloWorld) context.getBean("helloBeanProxy");
+    	hw.printHello();
+  System.out.println("--------------"); 
+HelloWorld obj = (HelloWorld) context.getBean("helloBean");
 		HelloWorld obj1 = (HelloWorld) context.getBean("helloBean1");
 		
 		obj.printHello();
 		obj1.printHello();
+		HelloWorld hw1 = (HelloWorld) context.getBean("helloBean1Proxy");
+    	hw1.printHello();
+  System.out.println("--------------"); 
 	}
 }
