@@ -1,10 +1,43 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	xsi:schemaLocation="http://www.springframework.org/schema/aop
+	 http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+	http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  
 	<bean id="helloBean" class="com.saisvss.springsample1.HelloWorld">
 		<property name="name" value="Vasavi" />
 	</bean>
+	<bean id="helloBean1" class="com.saisvss.springsample1.HelloWorld">
+	<constructor-arg value="Hi Sateesh." />
+	</bean>
+ <bean id="doBeforeBean" class="com.saisvss.springsample1.DoBefore" /> 
+ 
+ 
+ <bean id="helloBeanProxy" class="org.springframework.aop.framework.ProxyFactoryBean"> 
+<property name="target" ref="helloBean" /> 
+ <property name="interceptorNames"> 
+<list> 
+<value>doBeforeBean</value> 
+ </list> 
+</property> 
+
+    </bean> 
+    
+<bean id="doAfterBean" 
+class="com.saisvss.springsample1.DoAfter" /> 
+<bean id="helloBean1Proxy" class="org.springframework.aop.framework.ProxyFactoryBean"> 
+ <property name="target" ref="helloBean1" /> 
+<property name="interceptorNames"> 
+<list> 
+
+<value>doAfterBean</value> 
+</list> 
+</property> 
+ </bean> 
+    
+ 
+
+
  
 </beans>
